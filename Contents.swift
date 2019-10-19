@@ -163,3 +163,33 @@ default:
     print(numero)
 }
 
+
+//Solo puede tener enteros, no puede tener null. No copila si tiene valores nulos
+//var x2: Int
+//x2 + 1
+
+//optionals
+//Java tiene todas las variables opcionales
+//En swift las variables no son opcionales
+//Asi se declaran las variables opcionales en swift
+var x3: Int?
+x3 = 1
+x3 = nil
+
+//En este caso es como si en java todas estuvieran declarados de manera optional (?)
+//var x4: Int
+//x4 = 1
+//x4 = nil
+//Si le quitas el '?' no te deja c
+
+
+//Esta es la solucion ganadora
+let x: Int
+x = 1
+
+//Lo importante es que cuando se declara, es más explixito que puede venir null
+var a: String?
+var f: Float? = 1.0 //Si esto no se declara, truena en la ejecución
+
+let flotante = f! + 1.9 //Con el signo de admiracion, es como una alerta, es para forzar a sacar valor
+//Evitar optionals siempre
