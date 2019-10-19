@@ -107,3 +107,9 @@ print(codigoError2.description)
 //Se de-estructura para poder extraer valores
 let (codigo, mensaje) = codigoError
 print("\(codigo) : \(mensaje)")
+
+let (_, mensaje2) = codigoError //De esta manera no importa recuperar el primer elemento, el único que importa es el segundo
+
+let codigoError3 = (404, "Not found", "Otro mensaje")
+let (_,_,mensaj3) = codigoError3
+print(mensaj3)
