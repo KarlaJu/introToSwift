@@ -93,6 +93,17 @@ if d1 + 0.1 == 1.2 {
 //Tuplas
 let codigoError = (404, "Not Found")
 print(codigoError)
+//De esta manera se puede acceder a una tupla sin descripcion
+print(codigoError.0)
 
+
+//Se puede agregar el nombre a la tupla
 let codigoError2 = (code: 404, description: "Not Found")
 print(codigoError2.description)
+
+//Esta linea funciona como pattern Matching
+//Funciona mas bien como una afirmacion
+//Y lo que esta del lado izquierdo es igual a lo que tengo del lado derecho
+//Se de-estructura para poder extraer valores
+let (codigo, mensaje) = codigoError
+print("\(codigo) : \(mensaje)")
