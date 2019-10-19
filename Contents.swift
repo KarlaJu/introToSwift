@@ -306,5 +306,12 @@ diccionario["llave1"] = 10
 diccionario
 diccionario["llavee"] = 10
 //Cuando una llave es nula, la quita del mapa
+//No se recomienda borrar llaves de esta manera
 diccionario["llave3"] = nil
+diccionario
+
+//Si se quiere remover una llasve, se recomienda removerla de esta manera
+//Si ves el nil, alguine mas no sabra de se trata
+let llave2 = diccionario.removeValue(forKey:"llave1")
+diccionario.removeValue(forKey:"llave2")
 diccionario
