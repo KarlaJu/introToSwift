@@ -267,4 +267,23 @@ var nombre: String
 var diaSemana = Dia.Lunes
 diaSemana = .Jueves
 
-
+//El switch tiene que ser exahustivo, tiene que cubrir todos los casos
+//Y en este caso no hay forma de que exista otra opcion de esos 5 valores
+//Si te falta un caso el compilador te manda un error de que te falta un caso
+//Porque no estas cumpliendo con todos los casos
+// Inlcuso con un default tienes que completar todos los casos
+//En el caso de poner un default ya contemplando todos los casos
+//El compilador de dice que nunca va a entrar a ese caso
+//Porque el enum no tiene ese valor
+switch diaSemana {
+case .Lunes:
+    print("Otra vez a trbajar")
+case .Martes:
+    print("Ya quiero que acabe la semana")
+case .Miércoles:
+    print("Apenas vamos a la mitad")
+case .Jueves:
+    print("Ya casi es fin de semana")
+case .Viernes:
+    print("Por fin es viernes!!")
+}
