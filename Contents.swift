@@ -290,3 +290,14 @@ case .Viernes:
 case .Sabado:
     print("Saaabado")
 }
+
+
+//Diccionarios
+//Mapas
+//Coleciones asociativas
+var unDiccionario: [String:Int] = [:]
+var diccionario = ["llave1": 1, "llave2": 2, "llave3": 3]
+
+//Dentro de un valor se guarda el valor anterior
+let unValor = diccionario.updateValue(4, forKey: "llave2")
+diccionario["llave1"] = 10
