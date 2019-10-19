@@ -193,3 +193,10 @@ var f: Float? = 1.0 //Si esto no se declara, truena en la ejecución
 
 let flotante = f! + 1.9 //Con el signo de admiracion, es como una alerta, es para forzar a sacar valor
 //Evitar optionals siempre
+
+//
+if let x = f { //clausula if let
+     print("Todo bien \(x+1)")
+} else {
+    print("El opcional no tiene valor")
+}
