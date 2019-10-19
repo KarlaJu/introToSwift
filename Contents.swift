@@ -246,3 +246,25 @@ for libro in librosFavoritos {
 for (indice, libro) in librosFavoritos.enumerated() {
     print("\(indice + 1) : \(libro)")
 }
+
+
+
+
+//Enums
+//El case quiere decir QUE valores son permitidos
+//Que valores puede tener esa variable
+enum Dia {
+    case Lunes
+    case Martes
+    case Miércoles
+    case Jueves
+    case Viernes
+}
+
+//Restringo el tipo de dato, pero no el valor, el tipo de dato es String, el tipo de dato es dia
+//El valor se puede cambiar simplemente con .valor del enum
+var nombre: String
+var diaSemana = Dia.Lunes
+diaSemana = .Jueves
+
+
