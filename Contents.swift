@@ -259,6 +259,7 @@ enum Dia {
     case Miércoles
     case Jueves
     case Viernes
+    case Sabado
 }
 
 //Restringo el tipo de dato, pero no el valor, el tipo de dato es String, el tipo de dato es dia
@@ -286,4 +287,6 @@ case .Jueves:
     print("Ya casi es fin de semana")
 case .Viernes:
     print("Por fin es viernes!!")
+case .Sabado:
+    print("Saaabado")
 }
