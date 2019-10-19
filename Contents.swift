@@ -315,3 +315,41 @@ diccionario
 let llave2 = diccionario.removeValue(forKey:"llave1")
 diccionario.removeValue(forKey:"llave2")
 diccionario
+
+
+
+
+
+//conjuntos
+//colecciones no ordenadas
+
+var amigos = Set<String>()
+var amigos1: Set<String> = [] //Si se inicializa
+
+var amigos2 = Set(["Julieta", "Violeta", "Andres", "Ernesto"])
+var amigos3: Set = ["Fabian", "Freddy", "Andres", "Ernesto"]
+amigos3.insert("Julian")
+amigos3
+//En este caso se remueve el valor como tal
+amigos3.remove("Ernesto")
+amigos3
+//No acepta duplicados
+//Regresar una isercion falsa
+amigos3.insert("Julian")
+amigos3
+
+//No hay que perder de vista que no hay garantia de orden
+for amigo in amigos3 {
+    print("\(amigo) es mi amigo")
+}
+
+let estaVacio = amigos3.isEmpty
+let estaAndres = amigos3.contains("Andres")
+let numeroAmigos = amigos3.count
+
+//podemos pedir intersecciones y diferencia de interesecciones y la union
+let comunes = amigos2.intersection(amigos3)
+let diferencias = amigos2.symmetricDifference(amigos3)
+let todos = amigos2.union(amigos3)
+let resta = amigos2.subtract(amigos3)  //prints: ()
+let resta2 = amigos2.subtracting(amigos3)  //prints: {'Julieta', 'Violeta', 'Ernesto'}
