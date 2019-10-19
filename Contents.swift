@@ -237,4 +237,12 @@ librosFavoritos.insert("The art of unix programming", at: 2)
 librosFavoritos[2]
 librosFavoritos.remove(at: 3)//Los parametros de las funciones son nombrados con al at
 
+for libro in librosFavoritos {
+    print(libro)
+}
 
+//enumerated devuelve un conjunto de tuplas
+//Estoy haciendo un pattern matching con la tupla
+for (indice, libro) in librosFavoritos.enumerated() {
+    print("\(indice + 1) : \(libro)")
+}
