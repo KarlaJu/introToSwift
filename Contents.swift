@@ -40,5 +40,41 @@ cadena2.unicodeScalars.count
 
 //Estructuras de control
 for index in cadena2.indices {
-    print("\(cadena2[index])")
+    print("La salida es: \(cadena2[index])")
 }
+//Lo que me devulve indices es un iterador
+
+
+//La igualdad va a ser de contenido,  no compara que sea exactamente el mismo objeto
+if cadena2 == cadena3 {
+    print("Son iguales")
+}
+
+//El valor por default de un int es de 64 bits
+print("El valor máximo de Int es \(Int.max).")
+print("El valor mínimo de Int es \(Int.min).")
+print("El valor máximo de UInt es \(UInt.max).")
+print("El valor mínimo de UInt es \(UInt.min).")
+print("El valor máximo de Int8 es \(Int8.max).")
+print("El valor máximo de Int16 es \(Int16.max).")
+print("El valor máximo de Int32 es \(Int32.max).")
+print("El valor máximo de Int64 es \(Int64.max).")
+
+print(11/3) //Un entero
+print(11 / 3.0)// Hace el casteo y regresa un contraenteero
+print(11 % 3) // El modulo
+
+
+let y: Int8 = 120 //Si el valor de un int8 es un 128 se genera un overflow
+//let z = y + 10 // genera un error de ejecucion, si lo compilo, le esta poniendo un tipo de datos int8 a la variable
+let z = y &+ 10 // El & indica que swift se comporte como c, genera un overflow pero el resultado es -126
+
+
+
+//Los float son de 32 y los doubles son de 64 bits
+let d1 = 1.1
+let d2: Double = 1.1
+let f1: Float = 100.3
+
+print("d1 + 0.1 es \(d1 + 0.1)")
+
