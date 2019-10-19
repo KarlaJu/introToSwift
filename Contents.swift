@@ -113,3 +113,53 @@ let (_, mensaje2) = codigoError //De esta manera no importa recuperar el primer 
 let codigoError3 = (404, "Not found", "Otro mensaje")
 let (_,_,mensaj3) = codigoError3
 print(mensaj3)
+
+
+
+var bandera = 1
+while bandera == 0 {
+    print("Bandera no ha cambiado")
+}
+
+
+
+//Soporta if terniarios
+
+
+//No importa el tipo de dato, el swith lo soporta
+//Tampoco tiene break
+let personaje: String = "Lobo estepario"
+switch personaje {
+case "Caballero":
+    print("El personaje \(personaje) es un caballero")
+case "Mago":
+    print("El personaje \(personaje) es un Mago")
+case let unPersonaje where unPersonaje.hasPrefix("Lobo") &&
+unPersonaje.hasSuffix("pario")://Si personaje asignado tiene prfijo lobo y el sufijo pario se asigne a la variable
+    print("Wow El personaje \(personaje) es un Lobo")
+default:
+    print("Este no es un personaje del juego")
+}
+//En la medida de los posible evitar poner default en el switch
+//Es porque a veces no se pone un print en el break y no arroja el error
+
+
+// el case soporta rangos
+
+
+//fallThrough va a hacr lo que tenga que hacer y se va seguir y va a entrar en el siguiente caso
+var numero = 5
+switch numero {
+case 0...5:
+    numero += 1
+    fallthrough
+case 6..<10:
+  numero*=1
+case 11:
+    print("Hola")
+    break
+default:
+    numero += 1
+    print(numero)
+}
+
