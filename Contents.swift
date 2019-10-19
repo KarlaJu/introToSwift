@@ -33,4 +33,12 @@ let cadena3 = "Mi cádena"
 //Tiene autocompletado
 cadena.count
 cadena2.count
+//De esta manera el unicode lo separa y nos regresa ambos caracteres separados
+cadena2.unicodeScalars.count
 
+
+
+//Estructuras de control
+for index in cadena2.indices {
+    print("\(cadena2[index])")
+}
