@@ -299,5 +299,12 @@ var unDiccionario: [String:Int] = [:]
 var diccionario = ["llave1": 1, "llave2": 2, "llave3": 3]
 
 //Dentro de un valor se guarda el valor anterior
+//Un valor es de tipo opcional
 let unValor = diccionario.updateValue(4, forKey: "llave2")
 diccionario["llave1"] = 10
+//si 'llave' no se encuentra, la va a crear
+diccionario
+diccionario["llavee"] = 10
+//Cuando una llave es nula, la quita del mapa
+diccionario["llave3"] = nil
+diccionario
