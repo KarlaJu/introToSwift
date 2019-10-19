@@ -196,7 +196,45 @@ let flotante = f! + 1.9 //Con el signo de admiracion, es como una alerta, es par
 
 //
 if let x = f { //clausula if let
-     print("Todo bien \(x+1)")
+     print("Todo bien \(x+1)") //Tambien se puede quedar con el if, sin laa necesidad de usar else
 } else {
     print("El opcional no tiene valor")
 }
+
+
+var cadenaOpcional: String? = "10"
+if let s = cadenaOpcional {
+    if let i = Int(s) { // Aqui va la piramide de la muerte por muchos ifs
+        print("El entero es \(i)")
+    }
+}
+
+if let s = cadenaOpcional, let i = Int(s) { //Si es necesario que lleven las llaves, es un if que se aplana y que pueda tener varias sentencias
+    print("Cadena es \(s); el entero es \(i)")
+}
+
+
+
+//Arreglos
+var librosFavoritos1: [String] = ["Aprende Swift en 3 segundos",
+"Elm para principiantes",
+"Crea sitios increibles con Elixir"]
+
+//Inferencia de tipos
+var librosFavoritos: [String] = ["Aprende Swift en 3 segundos",
+"Elm para principiantes",
+"Crea sitios increibles con Elixir"]
+
+librosFavoritos.count
+librosFavoritos.first
+librosFavoritos.last
+librosFavoritos[1]
+
+//Si presionas la tecla de option (alt) y das click en append te da la documentacion
+librosFavoritos.append("Code complete")
+librosFavoritos[2]
+librosFavoritos.insert("The art of unix programming", at: 2)
+librosFavoritos[2]
+librosFavoritos.remove(at: 3)//Los parametros de las funciones son nombrados con al at
+
+
