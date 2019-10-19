@@ -87,3 +87,12 @@ print("d1 + 0.1 es \(d1 + 0.1)")
 if d1 + 0.1 == 1.2 {
     print("Son iguales")
 }
+
+
+
+//Tuplas
+let codigoError = (404, "Not Found")
+print(codigoError)
+
+let codigoError2 = (code: 404, description: "Not Found")
+print(codigoError2.description)
