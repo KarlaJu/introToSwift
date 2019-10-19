@@ -76,5 +76,14 @@ let d1 = 1.1
 let d2: Double = 1.1
 let f1: Float = 100.3
 
-print("d1 + 0.1 es \(d1 + 0.1)")
 
+//Lo que hace es que toma la notacion cientifica y al momento de regresar la notacion pierde presicion
+print("d1 + 0.1 es \(d1 + 0.1)")
+//Nunca usar flotantes o doubles para guardar dinero
+
+
+//Jamas se deben de compara iguales o doubles, porque no son iguales y muy dificilmente van a cuadrar
+//Se almacena en notacion cientifica y NO son iguales
+if d1 + 0.1 == 1.2 {
+    print("Son iguales")
+}
