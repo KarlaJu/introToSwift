@@ -137,3 +137,32 @@ case let .Exito(contenido):
 case let .Error(codigo):
     print("El código de es es \(codigo)")
 }
+
+
+//Estructuras
+
+//Las estructuras no soportan herencia
+//van a pasarse por valor no por referenecia
+
+struct Cuerpo {
+    var altura: Double = 0
+    var peso: Double = 0
+}
+
+//Clases
+class Persona {
+    var cuerpo: Cuerpo = Cuerpo()
+}
+
+//dee sta manera se inicializa
+//Inicializador en lugar de constructor
+var cuerpo = Cuerpo()
+cuerpo.altura = 1.85
+cuerpo.peso = 70
+
+
+var juan = Persona()
+juan.cuerpo = cuerpo
+cuerpo.altura = 1.85
+cuerpo.peso = 70
+print("Juan es \(juan.cuerpo.altura) metros alto y pesa \(juan.cuerpo.peso)")
