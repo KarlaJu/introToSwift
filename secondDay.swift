@@ -44,3 +44,48 @@ func saludar6(persona: String, saludo: String) {
     print("Hola \(persona) \(saludo)")
 }
 saludar6(persona: "Karla", saludo: "buenos días")
+
+
+
+//Valores por defecto
+func saludar7(persona: String = "Norberto") {
+    print("Hola \(persona)")
+}
+saludar7(persona: "Karla")
+saludar7()
+
+//Para que devuelva un tipo string
+func saludar8(persona: String = "Norberto") -> String {
+    print("Hola \(persona)")
+    return "Saludos a \(persona)"
+}
+
+let persona = saludar8(persona: "Raul")
+saludar8()
+persona
+
+
+let unEntero = 10
+let otroEntero: Int = unEntero.advanced(by: 1) //Permite incrementar por 1 por 2 ... n
+print("\(otroEntero)")
+
+
+let unEntero2: Int? = 10
+let otroEntero2: Int = unEntero2!.advanced(by: 1) //Este caso es cuando podría ser opcional
+print("\(otroEntero)")
+
+
+
+//Opcionales
+//Casos con opcionales
+
+let unEntero3: Int? = 10
+let otroEntero3: Int = unEntero3?.advanced(by: 1) ?? 0 //Este es el valor que va a tener po defailt si es que la caja viene vacia
+print("\(otroEntero)")
+
+
+var librosFavoritos: [String] = []
+//Para forzar a que no sea opcional
+let valor: String = librosFavoritos.first ?? "Programming swift" //First devuleve un pocional
+//Si solo se declara
+//let valor = librosFavoritos.first // Esto se vuelve un opcional
