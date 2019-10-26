@@ -160,9 +160,207 @@ var cuerpo = Cuerpo()
 cuerpo.altura = 1.85
 cuerpo.peso = 70
 
-
+//Se crea una copia para Juan no por referencia
 var juan = Persona()
 juan.cuerpo = cuerpo
 cuerpo.altura = 1.85
 cuerpo.peso = 70
 print("Juan es \(juan.cuerpo.altura) metros alto y pesa \(juan.cuerpo.peso)")
+print(cuerpo)
+
+//Se hereda de persona con los dos puntos
+class Empleado: Persona {
+    var idEmpleado = 0
+}
+
+var empleado = Empleado()
+empleado.cuerpo = cuerpo
+empleado.idEmpleado = 2
+
+
+var c1 = Cuerpo()
+c1.altura = 1.3
+let c2 = Cuerpo()
+
+var c3 = c2
+c3.altura = 30
+print(c2)
+
+//Si se habla de estructuras es porque estamos pasando copias
+
+let e = Empleado()
+let otroE = Empleado()
+//Lo que chehca es que si estamos haciendo referencia al mismo objeto
+e === otroE  //Esto es falso
+
+let e1 = Empleado()
+let otroE1 = e1
+//Lo que chehca es que si estamos haciendo referencia al mismo objeto. Revisa si esta exactamente en el mismo lugar en la memoria
+e1 === otroE1  //Esto es falso
+
+//No puede haber dos variables que puedan
+//Se esta haviendo una copia
+//Es imposible que se pueda pasar
+//Una vez que se hace la asignacion, se esta creando una copia de la estructura
+//Es semanticamente imposible que en estructuras eso pueda pasar
+//let c = Cuerpo()
+//let otroC = Cuerpo()
+//c === otroC
+
+
+//Propiedades almacenadas y calculadas
+struct Cuerpo1 {
+    var altura: Double  = 1.73 //propiedades con almacenamiento y valor por default
+    var peso: Double = 75
+}
+
+
+//Calculadas: Estas proppiedades no tienen un espacio para almacenar valor simplemente lo calculan
+class Persona1 {
+    var cuerpo: Cuerpo1 = Cuerpo1()
+    var bmi: Double {
+        get {
+            return (cuerpo.peso/(cuerpo.altura * cuerpo.altura))
+        }
+    }
+}
+
+
+var persona1 = Persona1()
+persona1.cuerpo = Cuerpo1()
+print("El bmi de la persona es: \(persona1.bmi)")
+
+
+
+//La propiedad
+class Empresa {
+    var numeroEmpleados: Int = 0 {
+        willSet {//Monitoreando u observando si una propiedad cambia, se ejecutara antes de que yo cambie el valor de la propiedad
+          print("Tenemos \(numeroEmpleados) y vamos a tener \(newValue) empleado") // swift sintetiza e inclye newValue
+        }
+        didSet {//Depsues de que el cambio se hizo
+          print("Ahora tenemos \(numeroEmpleados) y teniamos \(oldValue) empleados") // el valor previo que se tenia
+        }
+    }
+}
+
+var empresa = Empresa()
+empresa.numeroEmpleados = 2
+
+
+
+//Funciones
+//Se pueden asignar a los enmus, a las estructuras y a las clases
+//en el caso de las clases el mutating viene por default
+struct Cuerpo3 {
+    var altura: Double = 0 //propiedades con almacenamiento y valor por default
+    var peso: Double = 0
+    mutating func subirDePeso(kilos: Double) { //Aqui si le tenemos que indicar que el valor va estar mutando
+        peso = kilos
+    }
+}
+var cuerpo3 = Cuerpo3()
+cuerpo3.subirDePeso(kilos: 23)
+
+var cuerpo4 = Cuerpo3()
+cuerpo4.subirDePeso(kilos: 12) // solo se pueden mandar a llamar como var, ya que si son let al ser de tipo mutating mandara error
+
+
+class Persona2 {
+    var cuerpo: Cuerpo3 = Cuerpo3()
+}
+
+class Empleado2: Persona {
+    var idEmpleado = 0
+    func asignar(id: Int) {
+        idEmpleado = id
+    }
+}
+let empleado2 = Empleado2() //esto puede ser de tipo inmutable
+empleado2.asignar(id: 12)  //Y sin empbargo sus funciones internamente pueden modificarse !!! Advetencia se recomienda tener con eso
+//El hecho de poner let no quiere decir que no se pueda modficar la parte interna del objeto
+print("\(empleado2.idEmpleado)")
+
+
+class Persona3 {
+    static let pesoDefault = 20 //Metodos de instancia no de clase
+    var cuerpo: Cuerpo3 = Cuerpo3()
+    static func devuelvePesoDefault() -> Int {
+        return pesoDefault
+    }
+}
+
+let pesoDefault = Persona3.devuelvePesoDefault()
+
+
+//Extensiones
+
+
+//Propiedades almacenadas y calculadas
+struct Cuerpo4 {
+    var altura: Double  = 1.73 //propiedades con almacenamiento y valor por default
+    var peso: Double = 75
+}
+
+//Se vuelve a abrir la declaracion de cuerpo
+//Para agregarle propeidades
+//Se pueden tener varias extensiones
+extension Cuerpo4 {
+    var bmi: Double {
+        get {
+            return (cuerpo.peso/(cuerpo.altura * cuerpo.altura))
+        }
+    }
+}
+
+
+//var cuerpo4 = Cuerpo4()
+//cuerpo4.bmi()
+
+
+
+
+
+struct Point {
+    let x: Double
+    let y: Double
+}
+
+print(Point(x:1,y:2))
+
+//Description es el equivalente a toString
+extension Point: CustomStringConvertible {
+    var description: String {
+        return "This point \(x) :\(y)"
+    }
+}
+
+
+
+//Protocolos
+//Es lo mismo que el concepto de interfaz
+//Describe las firmas, un contrato y las clases y las estructuras implementan el contrato que esta especificadoe en ese protocolo
+//Los protocolos tambien pueden heredar de otro protocolo
+protocol EventoType {
+    var titulo: String {get set}
+    var id: Int {get}
+    func creaNotificacionLocal()
+}
+
+class EventoCalendario: EventoType {
+    var titulo: String = " "
+    var id: Int = 0
+    func creaNotificacionLocal(){
+        //Algo aqui
+    }
+}
+
+//Herencia de protocolos
+protocol EventoEspecialType: EventoType {
+    var esEspecial: Bool {get}
+}
+
+
+
+
+
