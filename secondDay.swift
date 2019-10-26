@@ -364,3 +364,83 @@ protocol EventoEspecialType: EventoType {
 
 
 
+//Clousers
+let numbers = [2,1,31,3,56,42,14]
+
+func compareAscending(i: Int, j: Int) -> Bool{
+    print("i: \(i) < j: \(j)")
+    return i < j
+}
+
+//Sorted es una funcion de orden superior
+//Las funciones también es un tipo de dato
+//Pueda pasar o devolver una funcion y esas se llaman de orden superior
+let sortedNumbers = numbers.sorted(by: compareAscending) //Sorted funciona a traves de una funcion, toma la funcion y los ordena
+
+//Funcion anonima
+let sortedNumberAnonima = numbers.sorted(by: {
+    (i: Int, j:Int) -> Bool in
+    return i < j
+})
+
+
+let mappedNumbers = numbers.map { // recibe una funcion
+    (i: Int) -> Int in  //se puede cambiar por string y retornar simplemante el "valor"
+    //return "\(1*2)"
+    return i * 3
+}
+mappedNumbers
+
+
+//Ejemplo de clouser
+
+typealias myFunction = (String) -> () //se crea un aleas para hacer mas legible el código
+
+func reatPrint (times: Int) -> myFunction { //De vuelve una funcion (La funcion devuelve void) Es una fabrica de funciones
+    func printer(text: String) { // retiene el valor de una variable que ya debio de ser destruida, esto es una operacion de cerradura
+        for _ in 1...times {
+            print(text)
+        }
+    }
+    return printer
+}
+
+let log = reatPrint(times: 5)
+let log2 = reatPrint(times: 2)
+log("Yeah")
+log2("Ok")
+
+
+
+//Genericos
+//En estas funciones es exactamente lo mismo, solo cambian el tipo de dato
+
+func makeIntPair(x: Int, y: Int) -> (Int, Int) {
+    return(x,y)
+}
+
+func makeStringPair(x: String, y: String) -> (String, String) {
+    return(x,y)
+}
+
+//Entonces hacemos una funcion generica
+func makePair<T>(x: T, y: T) -> (T, T) {  //Va a trabajar con un tipo de dato llamado T, no necesariamente tiene que ser una letra
+    return (x,y)
+}
+
+let firstPair = makePair(x: 1, y: 2)
+let secondPair = makePair(x: "uno", y: "dos")
+//Esto hace que las demas no nos funcionen, con makePair tenemos una funcion generica que utilizamos con diferentes tipos de datos
+//El compilador en tiempo de compilacion, reemplaza T por el tipo de dato que le estoy mandando
+//Cuando lo compila va a crear una funcion que recive el tipo de dato
+//se convierte en una especie de template
+//Para crear versiones especificas cuando lo mande a llamar
+
+func makePairDifferent<T,U>(x: T, y: U) -> (T, U) {
+    return (x,y)
+}
+let firstPairDifferent = makePairDifferent(x: 1, y: "dos")
+
+
+
+//
