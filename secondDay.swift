@@ -89,3 +89,51 @@ var librosFavoritos: [String] = []
 let valor: String = librosFavoritos.first ?? "Programming swift" //First devuleve un pocional
 //Si solo se declara
 //let valor = librosFavoritos.first // Esto se vuelve un opcional
+
+
+//Enums
+//Casos particulares
+
+//Tienen valores por omision y ese valor es entero
+enum EstadoDocumento: Int {
+    //el valor que realmente va a tiene por dentro es
+    //0 ,1,2,3
+    //Al final del dia van a ser nombres que identidfican el valor
+  case Recibido = 0, validado, EnProceso, Publicado
+}
+
+let valorEstado  = EstadoDocumento.validado.rawValue  //Imprime: 1, con rawvalue se saca el valor en crudo
+//estado es de tipo estadoDocumento
+let estado = EstadoDocumento(rawValue: 2) //Imprime EnProceso. Con esto podemos sacar un valor de estado documento con su valor en crudo
+let estado2 = EstadoDocumento(rawValue: 4) //Estado2 es de tipo opcional, porque no hay garantia. En este caso es nil.
+
+
+//siempre se deben poner una capa para recibir datos
+//encodebo: para leer jsons
+//Validador o sanidador
+//montar un snifer para leer trafico de la red y realmente cómo esta mandando la peticion y cómo la recibe
+
+
+//Esto podría funcionar cuando un servicio responde
+//Para el primer filtro de la capa de defensa
+//Con esto validamos que se recibio bien
+enum ResultadoWebService {
+    case Exito(String)
+    case Error(Int)
+}
+
+func llamadaWs() -> ResultadoWebService {
+    if false {
+        return ResultadoWebService.Exito("Mi contenido")
+    } else {
+        return ResultadoWebService.Error(502)
+    }
+}
+
+let resultado: ResultadoWebService = llamadaWs()
+switch resultado {
+case let .Exito(contenido):
+    print(contenido)
+case let .Error(codigo):
+    print("El código de es es \(codigo)")
+}
