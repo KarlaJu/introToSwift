@@ -221,7 +221,7 @@ var librosFavoritos1: [String] = ["Aprende Swift en 3 segundos",
 "Crea sitios increibles con Elixir"]
 
 //Inferencia de tipos
-var librosFavoritos: [String] = ["Aprende Swift en 3 segundos",
+var librosFavoritos = ["Aprende Swift en 3 segundos",
 "Elm para principiantes",
 "Crea sitios increibles con Elixir"]
 
@@ -305,6 +305,7 @@ diccionario["llave1"] = 10
 //si 'llave' no se encuentra, la va a crear
 diccionario
 diccionario["llavee"] = 10
+diccionario
 //Cuando una llave es nula, la quita del mapa
 //No se recomienda borrar llaves de esta manera
 diccionario["llave3"] = nil
